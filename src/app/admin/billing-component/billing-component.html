@@ -1,0 +1,78 @@
+<section>
+    <app-admin-header></app-admin-header>
+    <app-sidebar></app-sidebar>
+    <router-outlet></router-outlet>
+</section>
+
+<!-- mobile view -->
+<div class="mobile-only text-center">
+    <div class="w-100 position-absolute top-50 start-50 translate-middle">
+        <i class="bi bi-phone fs-1"></i>
+        <p>This page is hidden for mobile size</p>
+    </div>
+</div>
+
+<!-- mobile view -->
+<div class="mobile-only text-center">
+    <div class="w-100 position-absolute top-50 start-50 translate-middle">
+        <i class="bi bi-phone fs-1"></i>
+        <p>This page is hidden for mobile size</p>
+    </div>
+</div>
+
+<section class="content desktop-only">
+    <div class="container-fluid">
+        <div class="row">
+            <ng-container *ngIf="validBills && validBills.length > 0; else noBills">
+                <div class="col-md-3" *ngFor="let bill of validBills">
+                    <div class="bill-container">
+                        <div class="row bill-header">
+                            <div class="col-10"> {{ bill?.tableName }}</div>
+                            <div class="col-2 text-end"><i class="bi bi-arrow-down-short"></i></div>
+                        </div>
+                        <div class="row bill-item" *ngFor="let item of bill?.orderedItems">
+                            <div class="col-8">{{ item.total_qty }} × {{ item.item_name }}</div>
+                            <div class="col-4 text-end">Rs {{ item.total_price | number:'1.0-2' }}</div>
+                        </div>
+                        <div class="bill-separator"></div>
+                        <div class="row bill-text">
+                            <div class="col-8">
+                                <p>Gross Amount</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <p>Rs {{ bill?.grossAmount | number:'1.0-2' }}</p>
+                            </div>
+                        </div>
+                        <div class="row bill-text">
+                            <div class="col-8">
+                                <p>Service Charge</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <p>Rs {{ bill?.serviceCharge | number:'1.0-2' }}</p>
+                            </div>
+                        </div>
+                        <div class="row bill-text fw-bold">
+                            <div class="col-8">
+                                <p>Total</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <p>Rs {{ bill?.total | number:'1.0-2' }}</p>
+                            </div>
+                        </div>
+                        <div class="row bill-footer">
+                            <div class="col-12">
+                                <button class="btn btn-primary print-btn"
+                                    (click)="printAndRemoveBill(bill.tableId,bill.sessionId,bill.grossAmount,bill.serviceCharge)">Print Bill</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noBills>
+                <div class="col-12 text-center">
+                    <div class="alert alert-info mt-4">No bills to display.</div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

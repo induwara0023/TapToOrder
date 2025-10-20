@@ -1,0 +1,91 @@
+.menu-container {
+    width: 100%;
+    /* Fixed width */
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth touch scroll on iOS */
+    scrollbar-width: none;
+    /* Firefox hide scrollbar */
+}
+
+.menu-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari hide scrollbar */
+}
+
+.menu-container a {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    color: #3f3f3f;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.menu-container a.active {
+    background-color: white;
+    font-weight: 500;
+}
+
+.menu-container a:hover {
+    background-color: #ffffff;
+}
+
+.foodDetailsRow span{
+    background-color: #D9D9D9;
+    color: #151414;
+    font-size: 15px;
+    padding: 15px;
+}
+
+.foodCardWrapper{
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.foodCard{
+    width: 100%;
+    height: 410px;
+    border-radius: 20px;
+}
+
+.foodCard .imgDiv {
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.foodCard .imgDiv img {
+    /* width: 100%; */
+    /* height: 100%; */
+    object-fit: cover;
+    /* border-radius: 20px; */
+}
+
+.foodCard .imgDiv img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.foodCard h5{
+    font-size: 18px;
+    color: #363333;
+    font-weight: 600;
+}
+
+.foodCard p{
+    font-size: 14px;
+    color: #272525;
+}

@@ -1,0 +1,168 @@
+<section>
+  <app-admin-header></app-admin-header>
+  <app-sidebar></app-sidebar>
+  <router-outlet></router-outlet>
+</section>
+
+<!-- mobile view -->
+<div class="mobile-only text-center">
+  <div class="w-100 position-absolute top-50 start-50 translate-middle">
+    <i class="bi bi-phone fs-1"></i>
+    <p>This page is hidden for mobile size</p>
+  </div>
+</div>
+
+<section class="content desktop-only">
+  <div class="container-fluid">
+    <!-- record row -->
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="recordCard text-center">
+          <div class="spinner-border" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <h2 *ngIf="!loading">{{ ordersToday }}</h2>
+          <h4>Today’s Orders</h4>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="recordCard text-center">
+          <div class="spinner-border" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <h2 *ngIf="!loading">{{ ordersPending }}</h2>
+          <h4>Pending Orders</h4>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="recordCard text-center">
+          <div class="spinner-border" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <h2 *ngIf="!loading">{{ ordersCompleted }}</h2>
+          <h4>Completed Orders</h4>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="recordCard text-center">
+          <div class="spinner-border" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <h2 *ngIf="!loading">{{ ordersMonthly }}</h2>
+          <h4>Monthly Orders</h4>
+        </div>
+      </div>
+
+      <!-- final row -->
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="popularItemBox">
+            <h5>Most Popular Food Items</h5>
+
+            <div class="items mt-4">
+              <div
+                class="item d-flex justify-content-between gap-2"
+                *ngFor="let items of mostSoldItems"
+              >
+                <p>{{ items.name }}</p>
+                <p class="pe-1">( {{ items.sellingQty }} )</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-4">
+                    <div class="activetableBox">
+                        <h5 class="mb-2">Active Orders and Tables</h5>
+
+                        <div class="activeTables items">
+                            <div class="activetable">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p>Table 4</p>
+                                    <p class="badge rounded-pill text-bg-success me-2">Active</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> -->
+
+        <div class="col-md-4">
+          <div class="catBox">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5>Food Categories</h5>
+              <a
+                (click)="open(content)"
+                class="text-black text-decoration-none"
+                style="cursor: pointer"
+                ><i class="bi bi-plus-circle me-2"></i>Add New</a
+              >
+            </div>
+
+            <div class="items">
+              <div class="catRow" *ngFor="let cat of categories">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p>{{ cat.name }}</p>
+                  <p class="me-3">({{ cat.item_count }})</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- new category adding modal -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Add New Category</h5>
+      <button
+        type="button"
+        class="btn-close shadow-none"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        (click)="modal.dismiss()"
+      ></button>
+    </div>
+
+    <form [formGroup]="categoryForm">
+      <div class="modal-body">
+        <label for="" class="ms-2">New Category Name</label>
+        <input
+          type="text"
+          formControlName="newCatName"
+          class="form-control shadow-none"
+          placeholder="Enter New Category Name"
+        />
+
+        <div
+          class="text-danger errorMsg"
+          *ngIf="
+            categoryForm.get('newCatName')?.invalid &&
+            categoryForm.get('newCatName')?.touched
+          "
+        >
+          <div *ngIf="categoryForm.get('newCatName')?.errors?.['required']">
+            Category name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer justify-content-end">
+        <button
+          type="button"
+          class="btn btn-warning text-white"
+          data-bs-dismiss="modal"
+          (click)="addNewCat()"
+          [disabled]="categoryForm.invalid"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </ng-template>
+</section>

@@ -1,0 +1,51 @@
+<div class="section text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 position-absolute top-50 start-50 translate-middle">
+                <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                    <div class="signinSection mt-2">
+                        <h4 class="text-uppercase text-center">Admin Signin</h4>
+
+                        <div class="col-12 d-flex flex-column mt-4">
+                            <label>Email</label>
+                            <input type="email" formControlName="email"
+                                [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" class="form-control" />
+
+                            <!-- view error msg -->
+                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                                <div *ngIf="f['email'].errors['email']">Invalid email address</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-flex flex-column mt-4">
+                            <label>Password</label>
+                            <input type="password" formControlName="password"
+                                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" class="form-control" />
+
+                            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                <div *ngIf="f['password'].errors['required']">Password is required</div>
+                                <div *ngIf="f['password'].errors['minlength']">
+                                    Password must be at least 6 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-flex flex-column mt-4">
+                            <button class="btn btn-success" type="submit">Login</button>
+                        </div>
+
+                        <hr />
+
+                        <div class="col-12 d-flex flex-column mt-2 text-black text-center">
+                            <h3>Please don't try to signin if you are not admin or staff member</h3>
+                            <h5>Induwara Restaurant</h5>
+                            <h6>075 7060940</h6>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

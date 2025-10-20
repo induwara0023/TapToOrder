@@ -1,0 +1,139 @@
+<section>
+    <app-admin-header></app-admin-header>
+    <app-sidebar></app-sidebar>
+    <router-outlet></router-outlet>
+</section>
+
+<!-- mobile view -->
+<div class="mobile-only text-center">
+    <div class="w-100 position-absolute top-50 start-50 translate-middle">
+        <i class="bi bi-phone fs-1"></i>
+        <p>This page is hidden for mobile size</p>
+    </div>
+</div>
+
+<section class="content desktop-only">
+    <div class="container-fluid">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Tables ({{ tables.length }})</h5>
+            <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
+                <!-- <input type="text" class="searchInput" placeholder="Search table here"> -->
+                <a class="btn btn-warning" (click)="openAddTableModal(addTableModal)">Add New Table</a>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4" *ngFor="let table of tables">
+                <div class="table-card">
+                    <!-- Header -->
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h6 class="fw-bold mb-1">{{ table.name }}</h6>
+                            <small class="text-muted">NFC: {{ table.url }}</small>
+                        </div>
+                        <span class="status-badge">{{ table.status }}</span>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="d-flex justify-content-between align-items-center mt-auto pt-4">
+                        <small class="text-muted">Active Table</small>
+                        <div class="d-flex gap-2">
+                            <button class="icon-btn" (click)="openUpdateTableModal(updateTableModal, table)"><i
+                                    class="bi bi-pencil-square"></i></button>
+                            <button class="icon-btn" (click)="copyToClipboard(table.url)"><i
+                                    class="bi bi-copy"></i></button>
+                            <button class="icon-btn" (click)="deleteTable(table.id)"><i class="bi bi-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- add new table popup -->
+    <ng-template #addTableModal let-modal class="modalCss">
+        <div class="modal-header">
+            <div class="d-flex flex-column popHeader">
+                <h5 class="modal-title">Add New Table</h5>
+            </div>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"
+                (click)="modal.dismiss()"></button>
+        </div>
+
+        <form [formGroup]="newTableAddForm">
+            <div class="modal-body popup">
+                <div class="row">
+
+                    <div class="mb-3 d-flex flex-column col-12">
+                        <label class="ms-2">Name</label>
+                        <input type="text" formControlName="newTableName" class="shadow-none w-100"
+                            placeholder="Enter name here" />
+                    </div>
+                </div>
+
+                <!-- Errors -->
+                <div class="text-danger errorMsg"
+                    *ngIf=" newTableAddForm.get('newTableName')?.invalid && newTableAddForm.get('newTableName')?.touched">
+                    <div *ngIf="newTableAddForm.get('newTableName')?.errors?.['required']">
+                        Table name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-warning text-white w-100" [disabled]="newTableAddForm.invalid"
+                    (click)="addTable()">Add Table</button>
+            </div>
+        </form>
+    </ng-template>
+
+
+    <!-- update table popup -->
+    <ng-template #updateTableModal let-modal class="modalCss">
+        <div class="modal-header">
+            <div class="d-flex flex-column popHeader">
+                <h5 class="modal-title">Update Table</h5>
+            </div>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"
+                (click)="modal.dismiss()"></button>
+        </div>
+
+        <form [formGroup]="newTableAddForm">
+            <div class="modal-body popup">
+                <div class="row">
+
+                    <!-- <div class="mb-3 d-flex flex-column col-12">
+                        <label class="ms-2">Table Id</label>
+                        <input type="text" formControlName="newTableId" class="shadow-none w-100"/>
+                    </div> -->
+
+                    <div class="mb-3 d-flex flex-column col-12">
+                        <label class="ms-2">Name</label>
+                        <input type="text" formControlName="newTableName" class="shadow-none w-100"
+                            placeholder="Enter name here" />
+                    </div>
+
+                </div>
+
+                <!-- Errors -->
+                <div class="text-danger errorMsg"
+                    *ngIf=" newTableAddForm.get('newTableName')?.invalid && newTableAddForm.get('newTableName')?.touched">
+                    <div *ngIf="newTableAddForm.get('newTableName')?.errors?.['required']">
+                        Table name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-warning text-white w-100" [disabled]="newTableAddForm.invalid"
+                    (click)="updateTable()">Update Table</button>
+            </div>
+        </form>
+    </ng-template>
+
+
+</section>

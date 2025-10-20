@@ -1,0 +1,72 @@
+/* desktop view */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* mobile view only */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+.content {
+  margin-left: 300px;
+  margin-top: 10px;
+}
+
+input {
+  width: 300px;
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+}
+
+.table-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
+.status-badge {
+  background-color: #4ade80;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 4px 12px;
+  font-weight: 600;
+  text-transform: lowercase;
+  border: none;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: black;
+  margin-left: 8px;
+}
+
+.icon-btn:hover {
+  color: red;
+}
+
+.popup input, .popup textarea , .popup select{
+  background-color: #E3E3E3;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: #363333;
+}

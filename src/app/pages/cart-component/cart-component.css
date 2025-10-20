@@ -1,0 +1,87 @@
+.orderedItem{
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.orderedItemSection{
+    width: 100%;
+    height: 550px;
+    /* background-color: aquamarine; */
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-selector button {
+  background: #ccc;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.qty-selector span {
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.qty-selector button:hover {
+  background: #bbb;
+}
+
+.orderedItem input{
+    width: 350px;
+    height: 35px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.orderNoteSecion input{
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: #DFDFDF;
+}
+
+.orderedItemSection {
+  overflow-y: auto;       /* vertical scroll */
+  max-height: 550px;      /* oya height eka adjust karanna */
+}
+
+/* Chrome, Edge, Safari */
+.orderedItemSection::-webkit-scrollbar {
+  width: 4px; /* thin */
+}
+
+.orderedItemSection::-webkit-scrollbar-track {
+  background: transparent; /* remove background */
+}
+
+.orderedItemSection::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4); /* thin gray line */
+  border-radius: 4px;
+}
+
+.orderedItemSection::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.6); /* darker on hover */
+}
+
+/* Firefox */
+.orderedItemSection {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+}

@@ -1,0 +1,118 @@
+/* desktop view */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* mobile view only */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+.content {
+  margin-left: 300px;
+  margin-top: 10px;
+}
+
+input , select {
+  width: 300px;
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+}
+
+option {
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+option:hover {
+  background-color: #4ade80;
+  color: white;
+}
+
+.foodDetailsRow span{
+    background-color: #D9D9D9;
+    color: #151414;
+    font-size: 15px;
+    padding: 15px;
+}
+
+.foodCardWrapper{
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.foodCard{
+    width: 100%;
+    /* height: 410px; */
+    border-radius: 20px;
+}
+
+.foodCard .imgDiv {
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.foodCard .imgDiv img {
+    /* width: 100%; */
+    /* height: 100%; */
+    object-fit: cover;
+    /* border-radius: 20px; */
+}
+
+.foodCard .imgDiv img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.foodCard h5{
+    font-size: 18px;
+    color: #363333;
+    font-weight: 600;
+}
+
+.foodCard p{
+    font-size: 14px;
+    color: #272525;
+}
+
+.foodCard i{
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.foodCard i:hover{
+    color: #5c5656;
+}
+
+.popup input, .popup textarea , .popup select{
+  background-color: #E3E3E3;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: #363333;
+}
+
+.popHeader h5{
+  font-size: 20px;
+}
+
+.popHeader p{
+  font-size: 15px;
+}

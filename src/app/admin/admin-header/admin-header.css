@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    .navabrSec {
+        display: none;
+    }
+}
+
+.navabrSec {
+    height: 80px !important;
+    background-color: #E5D9D9;
+    margin-left: 300px;
+}
+
+.navabrSec h3 {
+    color: #504A4A;
+    font-weight: 500;
+}

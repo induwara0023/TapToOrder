@@ -1,0 +1,134 @@
+/* desktop view */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* mobile view only */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+.content {
+    margin-left: 310px;
+    margin-top: 10px;
+}
+
+/* template invoice css */
+/* body {
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Courier New", monospace;
+}
+
+.receipt {
+    width: 320px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-header {
+    text-align: center;
+    border-bottom: 1px dashed #aaa;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.receipt-header h4 {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.itemDiv {
+    border-top: 1px dashed #aaa;
+}
+
+.info,
+.items,
+.totals {
+    font-size: 14px;
+}
+
+.items table {
+    width: 100%;
+}
+
+.items th,
+.items td {
+    font-size: 14px;
+    padding: 3px 0;
+}
+
+.totals {
+    border-top: 1px dashed #aaa;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.footer {
+    text-align: center;
+    border-top: 1px dashed #aaa;
+    margin-top: 15px;
+    padding-top: 10px;
+    font-size: 13px;
+} */
+
+/* Custom CSS styles for the bill interface */
+.bill-container {
+    /* Using col-4 structure: centered and occupying 4 columns width (on medium/large screens) */
+    max-width: 400px;
+    /* Limit the max width for better appearance */
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    /* Applying the requested box-shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    /* White background for the card */
+}
+
+.bill-header,
+.bill-item,
+.bill-separator,
+.bill-footer {
+    padding: 5px 0;
+}
+
+.bill-header {
+    font-size: 1.rem;
+    font-weight: bold;
+    border-bottom: 2px dashed #ccc;
+    margin-bottom: 10px;
+}
+
+.bill-item {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.bill-text {
+    font-size: 1rem;
+    /* margin-bottom: 3px; */
+}
+
+.bill-separator {
+    border-top: 1px dashed #ccc;
+    margin: 15px 0;
+}
+
+.print-btn {
+    width: 100%;
+    padding: 7px;
+    font-size: 1rem;
+}

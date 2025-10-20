@@ -1,0 +1,9 @@
+.navabrSec{
+    height: 80px !important;
+    background-color: #E5D9D9;
+}
+
+.navabrSec a{
+    color: #504A4A;
+    font-weight: 500;
+}

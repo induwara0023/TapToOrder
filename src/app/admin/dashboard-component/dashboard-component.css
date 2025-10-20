@@ -1,0 +1,106 @@
+
+
+/* desktop view */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* mobile view only */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.content{
+    margin-left: 300px;
+    margin-top: 10px;
+}
+
+.recordCard{
+    width: 100%;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    margin-bottom: 15px;
+}
+
+.recordCard h2{
+    font-size: 50px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.recordCard h4{
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+}
+
+.popularItemBox , .activetableBox, .catBox{
+    width: 100%;
+    height: 50vh;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    margin-bottom: 15px;
+}
+
+.items{
+    height: 40vh;
+    overflow-y:  scroll;
+    overflow-x: hidden;
+}
+
+.popularItemBox .item{
+    background-color: #EEF8FF;
+    padding-top: 15px;
+    border-radius: 15px;
+    padding-left: 5px;
+    align-content: center;
+    margin-bottom: 30px;
+}
+
+.activetableBox .activetable{
+    background-color: #EEF8FF;
+    padding-top: 15px;
+    border-radius: 15px;
+    padding-left: 5px;
+    align-content: center;
+    margin-bottom: 30px;
+}
+
+.catBox .catRow{
+    background-color: #EEF8FF;
+    padding-top: 15px;
+    border-radius: 15px;
+    padding-left: 5px;
+    align-content: center;
+    margin-bottom: 30px;
+}
+
+.modal-body input{
+    width: 100%;
+    background-color: #f0efef;
+    margin: 5px;
+}
+
+.errorMsg{
+    font-size: 14px;
+    margin-left: 5px;
+}

@@ -1,0 +1,47 @@
+<section class="sideNav fixed-top">
+    <h4>Senondra Hotel</h4>
+    <hr>
+
+
+    <a *ngIf="isAdmin" class="listItem text-white d-flex gap-3 mt-3" routerLink="/dashboard" routerLinkActive="btnActive">
+        <i class="bi bi-speedometer2"></i>
+        <p class="mt-3">Dashboard</p>
+    </a>
+
+    <a *ngIf="isAdmin || isCashier" class="listItem text-white d-flex gap-3 mt-3" routerLink="/pos" routerLinkActive="btnActive">
+        <i class="bi bi-grid-1x2"></i>
+        <p class="mt-3">POS</p>
+    </a>
+
+    <a *ngIf="isAdmin || isCashier" class="listItem text-white d-flex gap-3 mt-3" routerLink="/billing" routerLinkActive="btnActive">
+        <i class="bi bi-file-earmark-break"></i>
+        <p class="mt-3">Billing</p>
+    </a>
+
+
+    <a *ngIf="isAdmin" class="listItem text-white d-flex gap-3 mt-3" routerLink="/menu-manager" routerLinkActive="btnActive">
+        <i class="bi bi-border-width"></i>
+        <p class="mt-3">Food Menu Manage</p>
+    </a>
+
+    <a *ngIf="isAdmin" class="listItem text-white d-flex gap-3 mt-3" routerLink="/table-manager" routerLinkActive="btnActive">
+        <i class="bi bi-tablet-landscape"></i>
+        <p class="mt-3">Table manage</p>
+    </a>
+
+    <a *ngIf="isAdmin || isStaff || isCashier" class="listItem text-white d-flex gap-3 mt-3" routerLink="/order-manager" routerLinkActive="btnActive">
+        <i class="bi bi-bag"></i>
+        <p class="mt-3">Order Manage</p>
+    </a>
+
+    <a *ngIf="isAdmin" class="listItem text-white d-flex gap-3 mt-3" routerLink="/user-manager" routerLinkActive="btnActive">
+        <i class="bi bi-people"></i>
+        <p class="mt-3">User Manage</p>
+    </a>
+
+    <a (click)="logout()" class="listItem text-white d-flex gap-3 mt-3 fixed-bottom logOutBtn" role="button">
+        <i class="bi bi-box-arrow-right"></i>
+        <p class="mt-3">log out</p>
+    </a>
+
+</section>

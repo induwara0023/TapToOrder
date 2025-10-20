@@ -1,0 +1,65 @@
+<app-header-component></app-header-component>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="ms-2">
+                <h4>Your Cart</h4>
+            </div>
+            <div class="orderedItemSection pt-3">
+                <!-- ordered item -->
+                <div class="orderedItem mb-2" *ngFor="let item of cartItems">
+                    <div class="details d-flex justify-content-between">
+                        <div>
+                            <h5>{{ item.name }}</h5>
+                            <p>Rs {{ item.price }} each</p>
+                        </div>
+                        <div>
+                            <h5 class="text-success">Rs {{ item.price * item.qty }}</h5>
+                        </div>
+                    </div>
+
+                    <div class="qty-selector mb-4 d-flex justify-content-between align-items-center justify-content-center">
+                        <div>
+                            <button (click)="decreaseQty(item)">-</button>
+                            <span style="min-width: 70px; text-align: center;">Quantity : {{ item.qty }}</span>
+                            <button (click)="increaseQty(item)">+</button>
+                        </div>
+                        <div>
+                            <button
+                                class="btn btn-danger btn-sm ms-2 d-flex align-items-center justify-content-center p-1"
+                                (click)="removeItem(item.id)">
+                                <i class="bi bi-x-lg text-danger m-2" style="margin:0;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- order summery -->
+    <div class="row mb-2">
+        <div class="col-12">
+            <div class="orderNoteSecion mb-3">
+                <h6>Order Note</h6>
+                <input type="text" placeholder="Any additional notes for your order ?">
+            </div>
+            <div class="totalSection d-flex justify-content-between">
+                <h6 class="fw-bold">Total</h6>
+                <h6 class="fw-bold text-success">Rs {{cartTotal}}</h6>
+            </div>
+            <!-- <a class="btn btn-warning w-100 text-white mt-2" routerLink="/orderstatus">Place Order</a> -->
+            <div class="d-flex gap-2">
+                <a class="btn btn-danger text-white mt-2 w-100" (click)="clearCart()">Clear Cart</a>
+                <a class="btn btn-success text-white mt-2 w-100" (click)="placeOrder(cartItems, tableId)">Place
+                    Order</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

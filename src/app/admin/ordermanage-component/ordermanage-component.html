@@ -1,0 +1,76 @@
+<section>
+    <app-admin-header></app-admin-header>
+    <app-sidebar></app-sidebar>
+    <router-outlet></router-outlet>
+</section>
+
+<!-- mobile view -->
+<div class="mobile-only text-center">
+    <div class="w-100 position-absolute top-50 start-50 translate-middle">
+        <i class="bi bi-phone fs-1"></i>
+        <p>This page is hidden for mobile size</p>
+    </div>
+</div>
+
+<section class="content desktop-only">
+
+    <div class="container">
+        <div class="status-bar mb-3">
+            <div class="status-item" *ngFor="let status of orderStatus"
+                [class.active]="status.status === selectedStatus" (click)="filterByStatus(status.status)">
+                <i class="bi bi-clock"></i>
+                <span>{{ status.status }}</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Order 1 -->
+            <div class="col-md-4" *ngFor="let orderDetails of orderDetails">
+                <div class="order-card">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <strong>Order Id #{{ orderDetails.orderId }}</strong> <span class="ms-2">{{
+                                orderDetails.tableName }}</span>
+                            <div class="text-muted small">{{ orderDetails.timestamp | date:'short' }}</div>
+                        </div>
+                        <div class="status-text">{{ orderDetails.orderStatus }}</div>
+                    </div>
+
+                    <p class="text-muted small fw-bold">{{ orderDetails.orderTime | date:'short' }}</p>
+
+                    <hr class="my-2">
+
+                    <div class="d-flex justify-content-between" *ngFor="let item of orderDetails.items">
+                        <div>{{ item.quantity }} x {{ item.itemName }}</div>
+                        <div><strong>Rs {{ item.price }}</strong></div>
+                    </div>
+
+                    <hr class="my-2">
+
+                    <div class="d-flex justify-content-between total-text">
+                        <div>Total :</div>
+                        <div>Rs: {{ orderDetails.total }}</div>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button class="btn-start" [disabled]="orderDetails.orderStatus === 'Completed'"
+                            (click)="handleOrderStatusChange(orderDetails)">
+                            {{
+                            orderDetails.orderStatus === 'Pending'
+                            ? 'Start Preparing'
+                            : orderDetails.orderStatus === 'Preparing'
+                            ? 'Mark as Completed'
+                            : 'Completed'
+                            }}
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
