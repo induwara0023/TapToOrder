@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   // private apiUrl = 'http://localhost/taptoorder-backend';
-  private apiUrl = 'https://www.shopynits.shop/';
+  private apiUrl = 'https://www.shopynits.shop';
 
   constructor(@Inject(HttpClient) private http: HttpClient) { }
 
