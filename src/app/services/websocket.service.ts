@@ -45,7 +45,9 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 })
 export class WebsocketService {
   private socket$: WebSocketSubject<any> | null = null;
-  private readonly WS_URL = 'ws://localhost:4000';
+  // private readonly WS_URL = 'ws://localhost:4000';
+  private readonly WS_URL = 'wss://www.shopynits.shop:4000';
+
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId)) {
