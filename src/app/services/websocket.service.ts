@@ -47,7 +47,7 @@ export class WebsocketService {
   private socket$: WebSocketSubject<any> | null = null;
   // private readonly WS_URL = 'ws://localhost:4000';
   // private readonly WS_URL = 'wss://www.shopynits.shop:4000';
-  private readonly WS_URL = 'wss://taptoorder-websocket.onrender.com';
+  private readonly WS_URL = 'ws://taptoorder-websocket.onrender.com';
 
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
