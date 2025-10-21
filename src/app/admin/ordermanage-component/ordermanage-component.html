@@ -34,12 +34,12 @@
                         <div>
                             <strong>Order Id #{{ orderDetails.orderId }}</strong> <span class="ms-2">{{
                                 orderDetails.tableName }}</span>
-                            <div class="text-muted small">{{ orderDetails.timestamp | date:'short' }}</div>
+                            <div class="text-muted small">{{ orderDetails.timestamp | date:'short' : '+0530' : 'si' }}</div>
                         </div>
                         <div class="status-text">{{ orderDetails.orderStatus }}</div>
                     </div>
 
-                    <p class="text-muted small fw-bold">{{ orderDetails.orderTime | date:'short' }}</p>
+                    <p class="text-muted small fw-bold">{{ orderDetails.orderTime | date:'short' : '+0530' : 'si' }}</p>
 
                     <hr class="my-2">
 
