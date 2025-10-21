@@ -46,8 +46,7 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 export class WebsocketService {
   private socket$: WebSocketSubject<any> | null = null;
   // private readonly WS_URL = 'ws://localhost:4000';
-  private readonly WS_URL = 'wss://https://samson-tourmalinic-unnaggingly.ngrok-free.dev';
-
+  private readonly WS_URL = 'wss://samson-tourmalinic-unnaggingly.ngrok-free.dev';
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId)) {
