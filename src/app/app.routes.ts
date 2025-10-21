@@ -16,7 +16,7 @@ import { SigninComponent } from './admin/signin-component/signin-component';
 import { RoleGuard } from './guards/RoleGuard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'signin', pathMatch: 'full' },
     { path: 'menu', component: MenuComponent, canActivate: [NfcGuard], data: { allowTId: true } },
     // { path: 'menu', component: MenuComponent},
     { path: 'signin', component:SigninComponent },
