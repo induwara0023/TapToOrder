@@ -41,8 +41,8 @@ export class OrdermanageComponent implements OnInit {
       }
     });
 
-    // this.loadOrderStatus();
-    // this.getOrderDetails();
+    this.loadOrderStatus();
+    this.getOrderDetails();
   }
 
   async loadOrderStatus(): Promise<void> {
