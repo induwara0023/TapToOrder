@@ -71,21 +71,21 @@ export class NfcGuard implements CanActivate {
       const raw = localStorage.getItem('tableSession');
       if (!raw) {
         // No session found — block access
-        this.router.navigate(['/home']);
+        this.router.navigate(['/signin']);
         return false;
       }
 
       const session = JSON.parse(raw);
       if (!session || !session.verifiedAt) {
         localStorage.removeItem('tableSession');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/signin']);
         return false;
       }
 
       // session expired?
       if (Date.now() - Number(session.verifiedAt) > MAX_SESSION_AGE) {
         localStorage.removeItem('tableSession');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/signin']);
         return false;
       }
 
@@ -108,7 +108,7 @@ export class NfcGuard implements CanActivate {
     } catch (err) {
       // malformed session or error → clear and redirect
       try { localStorage.removeItem('tableSession'); } catch (e) { }
-      this.router.navigate(['/home']);
+      this.router.navigate(['/signin']);
       return false;
     }
   }
