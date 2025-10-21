@@ -24,7 +24,10 @@ export class OrdermanageComponent implements OnInit {
     private api: ApiService,
     private cdr: ChangeDetectorRef,
     private wsServer: WebsocketService
-  ) {}
+  ) {
+    this.loadOrderStatus();
+    this.getOrderDetails();
+  }
 
   ngOnInit(): void {
     this.wsServer.connect();
