@@ -8,15 +8,22 @@ import { firstValueFrom } from 'rxjs';
 })
 export class NfcGuard implements CanActivate {
 
-  constructor(private router: Router, private api: ApiService) {}
+  constructor(private router: Router, private api: ApiService) { }
 
   async canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean> {
 
-  const table = route.queryParamMap.get('table');
-  const tableId = route.queryParamMap.get('tId');
-  const forceNew = route.queryParamMap.get('new');
+    // accept multiple possible query param names that NFC/QR systems might use
+    const possibleKeys = ['tId', 'tid', 'table', 'tableId', 'table_id', 'id'];
+    const qp = route.queryParamMap;
+    const table = qp.get('table') || qp.get('tableName') || null;
+    let tableId: string | null = null;
+    for (const k of possibleKeys) {
+      const v = qp.get(k);
+      if (v) { tableId = v; break; }
+    }
+    const forceNew = qp.get('new') || qp.get('fresh') || null;
 
     // max session age (ms) - adjust as needed (e.g., 6 hours)
     const MAX_SESSION_AGE = 6 * 60 * 60 * 1000;
@@ -100,7 +107,7 @@ export class NfcGuard implements CanActivate {
       return true;
     } catch (err) {
       // malformed session or error → clear and redirect
-      try { localStorage.removeItem('tableSession'); } catch(e) {}
+      try { localStorage.removeItem('tableSession'); } catch (e) { }
       this.router.navigate(['/signin']);
       return false;
     }
